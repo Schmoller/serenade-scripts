@@ -53,7 +53,7 @@ serenade.app(appName).key('cut before', 'u', ['control']);
 serenade.app(appName).key('cut after', 'k', ['control']);
 serenade.app(appName).key('delete word', 'backspace', ['control']);
 
-serenade.global().command('hello', async (api, matches) => {
+serenade.global().command('display debug', async (api, matches) => {
     console.log('active', await api.getActiveApplication());
     console.log('all', await api.getRunningApplications());
     console.log('installed', await api.getInstalledApplications());
