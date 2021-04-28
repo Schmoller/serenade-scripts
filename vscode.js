@@ -40,6 +40,9 @@ serenade.app("vscode").command("restart", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.debug.restart");
 });
 
+serenade.app("vscode").command("fold", async (api, matches) => {
+  await api.evaluateInPlugin("editor.fold");
+});
 serenade.app("vscode").command("fold all", async (api, matches) => {
   await api.evaluateInPlugin("editor.foldAll");
 });
