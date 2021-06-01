@@ -18,18 +18,12 @@ serenade.global().command("window overview", async (api, matches) => {
   await api.pressKey("f10", ["control"]);
 });
 
-serenade.global().command("window <%text%>", async (api, matches) => {
-  let command = matches.text;
-  if (command == "to" || command == "too") {
-    command = "2";
-  }
-
-  num = parseInt(command);
-  if (isFinite(num)) {
-    if (num > 0 && num < 10) {
-      await api.pressKey(num.toFixed(0), ["win"]);
-    }
-  }
-  // don't really want to do anything here. but we have to do something or it doesn't work
-  await api.pressKey("0", ["win"]);
-});
+serenade.global().key("window one", "1", ["win"]);
+serenade.global().key("window two", "2", ["win"]);
+serenade.global().key("window three", "3", ["win"]);
+serenade.global().key("window four", "4", ["win"]);
+serenade.global().key("window five", "5", ["win"]);
+serenade.global().key("window six", "6", ["win"]);
+serenade.global().key("window seven", "7", ["win"]);
+serenade.global().key("window eight", "8", ["win"]);
+serenade.global().key("window nine", "9", ["win"]);
