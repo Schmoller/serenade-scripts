@@ -32,3 +32,8 @@ serenade.app('firefox').command('go to <%name%>', async (api, matches) => {
     await api.typeText(matches.name);
     await api.pressKey('escape');
 });
+
+serenade.app('firefox').key('backspace word', 'backspace', ['control']);
+serenade.app('firefox').key('delete word', 'delete', ['control']);
+serenade.app('firefox').key('previous word', 'left', ['control']);
+serenade.app('firefox').key('next word', 'right', ['control']);
