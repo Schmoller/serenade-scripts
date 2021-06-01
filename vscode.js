@@ -104,8 +104,8 @@ serenade.app("vscode").command("git stash pop", async (api, matches) => {
 });
 // diff
 serenade.app("vscode").command("next change", async (api, matches) => {
-  await api.evaluateInPlugin("editor.action.editor.nextChange");
+  await api.evaluateInPlugin("editor.action.dirtydiff.next");
 });
 serenade.app("vscode").command("previous change", async (api, matches) => {
-  await api.evaluateInPlugin("editor.action.editor.previousChange");
+  await api.evaluateInPlugin("editor.action.dirtydiff.previous");
 });
