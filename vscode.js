@@ -1,9 +1,63 @@
 serenade.app("vscode").command("terminal", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.terminal.focus");
 });
-serenade.app("vscode").command("save", async (api, matches) => {
-  await api.pressKey("s", ["control"]);
+
+serenade.app("vscode").command("terminal repeat", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.focus");
+  await api.pressKey("up");
+  await api.pressKey("enter");
 });
+
+serenade.app("vscode").command("terminal interrupt", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.focus");
+  await api.pressKey("c", ["control"]);
+});
+
+serenade.app("vscode").command("terminal paste", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.paste");
+});
+
+serenade.app("vscode").command("terminal copy", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.copySelection");
+});
+
+serenade.app("vscode").command("terminal up", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.scrollUpPage");
+});
+
+serenade.app("vscode").command("terminal down", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.scrollDownPage");
+});
+
+serenade.app("vscode").command("terminal top", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.scrollToTop");
+});
+
+serenade.app("vscode").command("terminal bottom", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.scrollToBottom");
+});
+
+serenade.app("vscode").command("terminal clear", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.clear");
+});
+
+serenade.app("vscode").command("terminal left", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.focusPreviousPane");
+});
+
+serenade.app("vscode").command("terminal right", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.focusNextPane");
+});
+
+serenade.app("vscode").command(
+  "save",
+  async (api, matches) => {
+    await api.pressKey("s", ["control"]);
+  },
+  {
+    chainable: "any",
+  }
+);
 
 serenade
   .app("vscode")
@@ -40,33 +94,87 @@ serenade.app("vscode").command("restart", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.debug.restart");
 });
 
-serenade.app("vscode").command("fold", async (api, matches) => {
-  await api.evaluateInPlugin("editor.fold");
-});
-serenade.app("vscode").command("fold all", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldAll");
-});
-serenade.app("vscode").command("fold one", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldLevel1");
-});
-serenade.app("vscode").command("fold two", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldLevel2");
-});
-serenade.app("vscode").command("fold three", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldLevel3");
-});
-serenade.app("vscode").command("fold four", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldLevel4");
-});
-serenade.app("vscode").command("fold five", async (api, matches) => {
-  await api.evaluateInPlugin("editor.foldLevel5");
-});
-serenade.app("vscode").command("unfold", async (api, matches) => {
-  await api.evaluateInPlugin("editor.unfold");
-});
-serenade.app("vscode").command("unfold all", async (api, matches) => {
-  await api.evaluateInPlugin("editor.unfoldAll");
-});
+serenade.app("vscode").command(
+  "fold",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.fold");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold all",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldAll");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold one",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldLevel1");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold two",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldLevel2");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold three",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldLevel3");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold four",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldLevel4");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "fold five",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.foldLevel5");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "unfold",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.unfold");
+  },
+  {
+    chainable: "any",
+  }
+);
+serenade.app("vscode").command(
+  "unfold all",
+  async (api, matches) => {
+    await api.evaluateInPlugin("editor.unfoldAll");
+  },
+  {
+    chainable: "any",
+  }
+);
 
 // git commands
 serenade.app("vscode").command("git sync", async (api, matches) => {
@@ -108,4 +216,38 @@ serenade.app("vscode").command("next change", async (api, matches) => {
 });
 serenade.app("vscode").command("previous change", async (api, matches) => {
   await api.evaluateInPlugin("editor.action.dirtydiff.previous");
+});
+serenade.app("vscode").command("back", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.navigateBack");
+});
+serenade.app("vscode").command("forward", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.navigateForward");
+});
+serenade.app("vscode").command("show output", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.panel.repl.view.focus");
+});
+serenade.app("vscode").command("start tests", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.run");
+});
+serenade.app("vscode").command("start this test", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.run-this-test");
+});
+
+serenade.app("vscode").command("show params", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.triggerParameterHints");
+});
+
+serenade.app("vscode").command("next error", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.marker.nextInFiles");
+});
+serenade.app("vscode").command("previous error", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.marker.prevInFiles");
+});
+
+serenade.app("vscode").command("show hover", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.showHover");
+});
+
+serenade.app("vscode").command("quick fix", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.quickFix");
 });
