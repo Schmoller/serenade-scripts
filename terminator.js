@@ -53,6 +53,20 @@ serenade.app(appName).key('cut before', 'u', ['control']);
 serenade.app(appName).key('cut after', 'k', ['control']);
 serenade.app(appName).key('delete word', 'backspace', ['control']);
 
+serenade.app(appName).key('scroll down', 'pagedown', ['shift', 'alt']);
+serenade.app(appName).key('scroll up', 'pageup', ['shift', 'alt']);
+serenade.app(appName).key('scroll', 'pagedown', ['shift', 'alt']);
+serenade.app(appName).key('scroll to top', 'home', ['shift', 'alt']);
+serenade.app(appName).key('scroll top', 'home', ['shift', 'alt']);
+serenade.app(appName).key('scroll to bottom', 'end', ['shift', 'alt']);
+serenade.app(appName).key('scroll bottom', 'end', ['shift', 'alt']);
+
+serenade.app(appName).command('find <%thing%>', async(api, matches) => {
+    await api.pressKey('f', ['control', 'shift']);
+    await api.typeText(matches.thing)
+    await api.pressKey('enter')
+})
+
 serenade.global().command('display debug', async (api, matches) => {
     console.log('active', await api.getActiveApplication());
     console.log('all', await api.getRunningApplications());
