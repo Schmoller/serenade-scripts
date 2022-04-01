@@ -273,3 +273,27 @@ serenade.app("vscode").command("cursor undo", async (api, matches) => {
   await api.evaluateInPlugin("cursorUndo");
 });
 
+serenade.app("vscode").command("close all tabs", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.closeAllEditors");
+});
+
+serenade.app("vscode").command("close other tabs", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.closeOtherEditors");
+});
+
+serenade.app("vscode").command("show explorer", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.view.explorer");
+});
+
+serenade.app("vscode").command("new folder", async (api, matches) => {
+  await api.evaluateInPlugin("explorer.newFolder");
+});
+
+serenade.app("vscode").command("new file", async (api, matches) => {
+  await api.evaluateInPlugin("explorer.newFile");
+});
+
+serenade.app("vscode").command("show git", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.view.scm");
+});
+
