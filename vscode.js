@@ -297,3 +297,20 @@ serenade.app("vscode").command("show git", async (api, matches) => {
   await api.evaluateInPlugin("workbench.view.scm");
 });
 
+serenade.app("vscode").command("go to references", async (api, matches) => {
+  await api.evaluateInPlugin("references-view.findReferences");
+});
+
+serenade.app("vscode").command("next reference", async (api, matches) => {
+  await api.evaluateInPlugin("references-view.next");
+});
+
+serenade.app("vscode").command("previous reference", async (api, matches) => {
+  await api.evaluateInPlugin("references-view.prev");
+});
+
+serenade
+  .app("vscode")
+  .command("go to file references", async (api, matches) => {
+    await api.evaluateInPlugin("typescript.findAllFileReferences");
+  });
