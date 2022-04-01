@@ -66,6 +66,15 @@ serenade
     await api.typeText(matches.text);
   });
 
+serenade.app("vscode").command("next search result", async (api, matches) => {
+  await api.evaluateInPlugin("search.action.focusNextSearchResult");
+});
+serenade
+  .app("vscode")
+  .command("previous search result", async (api, matches) => {
+    await api.evaluateInPlugin("search.action.focusPreviousSearchResult");
+  });
+
 serenade.app("vscode").command("split", async (api, matches) => {
   await api.pressKey("\\", ["control"]);
 });
