@@ -257,6 +257,6 @@ serenade.app("vscode").command("show hover", async (api, matches) => {
   await api.evaluateInPlugin("editor.action.showHover");
 });
 
-serenade.app("vscode").command("quick fix", async (api, matches) => {
+serenade.app("vscode").command("suggest", async (api, matches) => {
   await api.evaluateInPlugin("editor.action.quickFix");
 });
