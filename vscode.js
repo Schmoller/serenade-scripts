@@ -260,3 +260,16 @@ serenade.app("vscode").command("show hover", async (api, matches) => {
 serenade.app("vscode").command("suggest", async (api, matches) => {
   await api.evaluateInPlugin("editor.action.quickFix");
 });
+
+serenade.app("vscode").command("cursor next", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.addSelectionToNextFindMatch");
+});
+
+serenade.app("vscode").command("cursor all", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.selectHighlights");
+});
+
+serenade.app("vscode").command("cursor undo", async (api, matches) => {
+  await api.evaluateInPlugin("cursorUndo");
+});
+
