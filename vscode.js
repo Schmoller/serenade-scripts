@@ -354,3 +354,22 @@ serenade
   .command("go to file references", async (api, matches) => {
     await api.evaluateInPlugin("typescript.findAllFileReferences");
   });
+
+
+// Bitbucket view
+serenade.app("vscode").command("show issues", async (api, matches) => {
+  await api.evaluateInPlugin("atlascode.views.bb.issuesTreeView.focus");
+});
+
+serenade.app("vscode").command("show pipelines", async (api, matches) => {
+  await api.evaluateInPlugin("atlascode.views.bb.pipelinesTreeView.focus");
+});
+
+serenade.app("vscode").command("refresh pipelines", async (api, matches) => {
+  await api.evaluateInPlugin("atlascode.bb.refreshPipelines");
+});
+
+serenade.app("vscode").command("show pull requests", async (api, matches) => {
+  await api.evaluateInPlugin("atlascode.views.bb.pullrequestsTreeView.focus");
+});
+
