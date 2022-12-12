@@ -91,6 +91,14 @@ serenade.app("vscode").command(
   }
 );
 
+serenade.app("vscode").command("show search", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.view.search.focus");
+});
+
+serenade.app("vscode").command("clear search", async (api, matches) => {
+  await api.evaluateInPlugin("search.action.clearSearchResults");
+});
+
 serenade
   .app("vscode")
   .command("global search <%text%>", async (api, matches) => {
