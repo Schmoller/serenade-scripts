@@ -25,9 +25,21 @@ serenade.app("vscode").command("terminal up", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.terminal.scrollUpPage");
 });
 
+serenade.app("vscode").command("terminal command up", async (api, matches) => {
+  await api.evaluateInPlugin(
+    "workbench.action.terminal.scrollToPreviousCommand"
+  );
+});
+
 serenade.app("vscode").command("terminal down", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.terminal.scrollDownPage");
 });
+
+serenade
+  .app("vscode")
+  .command("terminal command down", async (api, matches) => {
+    await api.evaluateInPlugin("workbench.action.terminal.scrollToNextCommand");
+  });
 
 serenade.app("vscode").command("terminal top", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.terminal.scrollToTop");
@@ -48,6 +60,26 @@ serenade.app("vscode").command("terminal left", async (api, matches) => {
 serenade.app("vscode").command("terminal right", async (api, matches) => {
   await api.evaluateInPlugin("workbench.action.terminal.focusNextPane");
 });
+
+serenade.app("vscode").command("terminal paste", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.paste");
+});
+
+serenade.app("vscode").command("terminal copy", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.copySelection");
+});
+
+serenade.app("vscode").command("terminal split", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.terminal.split");
+});
+
+serenade
+  .app("vscode")
+  .command("terminal select last command", async (api, matches) => {
+    await api.evaluateInPlugin(
+      "workbench.action.terminal.selectToPreviousCommand"
+    );
+  });
 
 serenade.app("vscode").command(
   "save",
