@@ -355,6 +355,17 @@ serenade
     await api.evaluateInPlugin("typescript.findAllFileReferences");
   });
 
+serenade.app("vscode").command("toggle word wrap", async (api, matches) => {
+  await api.evaluateInPlugin("editor.action.toggleWordWrap");
+});
+
+serenade.app("vscode").command("new window", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.newWindow");
+});
+
+serenade.app("vscode").command("show editor", async (api, matches) => {
+  await api.evaluateInPlugin("workbench.action.focusActiveEditorGroup");
+});
 
 // Bitbucket view
 serenade.app("vscode").command("show issues", async (api, matches) => {
