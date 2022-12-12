@@ -373,3 +373,29 @@ serenade.app("vscode").command("show pull requests", async (api, matches) => {
   await api.evaluateInPlugin("atlascode.views.bb.pullrequestsTreeView.focus");
 });
 
+// Test explorer
+serenade.app("vscode").command("show tests", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.focus");
+});
+
+serenade.app("vscode").command("run all tests", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.run-all");
+});
+
+serenade.app("vscode").command("debug test", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.debug-test-at-cursor");
+});
+
+serenade.app("vscode").command("run test", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.run-test-at-cursor");
+});
+
+serenade
+  .app("vscode")
+  .command("run all tests in file", async (api, matches) => {
+    await api.evaluateInPlugin("test-explorer.run-file");
+  });
+
+serenade.app("vscode").command("run tests in file", async (api, matches) => {
+  await api.evaluateInPlugin("test-explorer.run-file");
+});
