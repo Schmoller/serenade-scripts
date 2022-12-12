@@ -61,6 +61,12 @@ serenade.app(appName).key('scroll top', 'home', ['shift', 'alt']);
 serenade.app(appName).key('scroll to bottom', 'end', ['shift', 'alt']);
 serenade.app(appName).key('scroll bottom', 'end', ['shift', 'alt']);
 
+serenade.app(appName).command('ssh kill', async(api, matches) => {
+    await api.pressKey('enter');
+    await api.pressKey('~');
+    await api.pressKey('.');
+});
+
 serenade.app(appName).command('find <%thing%>', async(api, matches) => {
     await api.pressKey('f', ['control', 'shift']);
     await api.typeText(matches.thing)
